@@ -1,5 +1,6 @@
 #include <clean_robot_facilities.h>
 #include "utils/point.h"
+#include "sensor/lidar_sensor/lidarsensor.h"
 
 
 int main ( int argc, char** argv ) {
