@@ -17,6 +17,29 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "array2d.h"
+#ifndef SLAM_GRIDSLAM_H
+#define SLAM_GRIDSLAM_H
 
-using namespace SLAM;
+#include <climits>
+#include <limits>
+#include <vector>
+#include <deque>
+#include "../utils/point.h"
+
+
+namespace SLAM {
+
+class gridSLAM
+{
+public:
+    struct TNode{
+        double weight;
+        double accWeight;
+        double gweight;
+        TNode* parent;
+        
+};
+
+}
+
+#endif // SLAM_GRIDSLAM_H

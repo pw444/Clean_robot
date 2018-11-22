@@ -17,17 +17,41 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef SLAM_ACCESSSTATUS_H
-#define SLAM_ACCESSSTATUS_H
+#ifndef SLAM_HARRAY2D_H
+#define SLAM_HARRAY2D_H
+
+#include "../utils/point.h"
+#include "array2d.h"
+#include <thread>
+
 
 namespace SLAM {
 
-enum accessStatus{
-    Outside = 0,
-    Inside = 1,
-    Allocated = 2
+template<class Cell>
+class hArray2D : public array2D<std::shared_ptr< array2D<Cell> > >
+{
+public:
+    hArray2D(int xsize, int ysize), int patchMag);
+    hArray2D(const hArray2D& ha);
+    hArray2D& operator = (const hArray2D& ha);
+    void resize(int nxsize, int nysize);
+    
+    inline int getPatchMag() const{ return m_patchMag;}
+    inline int getPatchSize() const { return m_patchSize; }
+protected:
+    int m_patchMag;
+    int m_patchSize;
+    
+    
 };
 
+template<class Cell>
+hArray2D::hArray2D(int xsize, int ysize, int patchMag):
+array2D<std::shared_ptr< array2D<Cell> > >::array2D((xsize >> patchMag), (ysize >> patchMag)){
+    m_patchMag = patchMag;
+    m_patchSize = 1<<patchMag;
 }
 
-#endif // SLAM_ACCESSSTATUS_H
+
+
+#endif // SLAM_HARRAY2D_H

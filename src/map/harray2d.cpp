@@ -17,17 +17,6 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef SLAM_ACCESSSTATUS_H
-#define SLAM_ACCESSSTATUS_H
+#include "harray2d.h"
 
-namespace SLAM {
-
-enum accessStatus{
-    Outside = 0,
-    Inside = 1,
-    Allocated = 2
-};
-
-}
-
-#endif // SLAM_ACCESSSTATUS_H
+using namespace SLAM;

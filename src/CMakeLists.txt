@@ -8,6 +8,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_BUILD_DIR ${PROJECT_SOURCE_DIR}/build)
 
+
 #Add any other src file you may write
 set(clean_robot_SRC
     main.cpp
@@ -22,6 +23,8 @@ set(clean_robot_SRC
 set(clean_robot_INCLUDES
     headers/clean_robot_facilities.h
 )
+
+
 
 if(EXISTS "${CMAKE_SOURCE_DIR}/.git")
 	execute_process(
@@ -46,7 +49,6 @@ file(MAKE_DIRECTORY ${LIBRARY_OUTPUT_PATH})
 # Tell CMake to create the clean_robot executable and/or shared libs
 #add_library(somename SHARED ${clean_robot_LIB})
 add_executable(clean_robot ${clean_robot_SRC})
-#target_link_libraries( clean_robot somename )
 
 #If your app, links to an external lib -ie Boost
 #target_link_libraries( clean_robot ${Boost_LIBRARIES} )
